@@ -35,6 +35,16 @@ export default function Footer() {
                   Blogs
                 </Link>
               </li>
+              <li>
+                <Link to="/terms-of-use" className="text-sm hover:text-blue-400 transition-colors">
+                  Terms of Use
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy-policy" className="text-sm hover:text-blue-400 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 

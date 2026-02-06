@@ -6,6 +6,8 @@ import About from './pages/About';
 import XJewelERP from './pages/XJewelERP';
 import XCuraHMS from './pages/XCuraHMS';
 import Blogs from './pages/Blogs';
+import TermsOfUse from './pages/TermsOfUse';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path="/xjewel-erp" element={<XJewelERP />} />
             <Route path="/xcura-hms" element={<XCuraHMS />} />
             <Route path="/blogs" element={<Blogs />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           </Routes>
         </main>
         <Footer />
