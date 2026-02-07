@@ -65,7 +65,7 @@ function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            About xGrid
+            About SlateBiz
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </div>
@@ -73,13 +73,13 @@ function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              xGrid is a leading enterprise software development company specializing in building intelligent, scalable, and secure digital ecosystems for modern businesses. We design industry-focused ERP solutions and digital platforms that help organizations automate operations, improve productivity, and achieve sustainable growth.
+              SlateBiz is a leading enterprise software development company specializing in building intelligent, scalable, and secure digital ecosystems for modern businesses. We design industry-focused ERP solutions and digital platforms that help organizations automate operations, improve productivity, and achieve sustainable growth.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              With expertise in Jewellery ERP, Hospital Management Systems, and enterprise-grade digital solutions, xGrid empowers companies with cutting-edge technology, robust architecture, and data-driven intelligence.
+              With expertise in Jewellery ERP, Hospital Management Systems, and enterprise-grade digital solutions, SlateBiz empowers companies with cutting-edge technology, robust architecture, and data-driven intelligence.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Our solutions are trusted by businesses across retail, manufacturing, healthcare, and service sectors, making xGrid a reliable partner for digital transformation and business automation.
+              Our solutions are trusted by businesses across retail, manufacturing, healthcare, and service sectors, making SlateBiz a reliable partner for digital transformation and business automation.
             </p>
           </div>
 
@@ -260,7 +260,7 @@ function ContactSection() {
 
             <div className="space-y-6">
               <div>
-                <h3 className="font-semibold text-gray-900 mb-2">xGrid Softwares</h3>
+                <h3 className="font-semibold text-gray-900 mb-2">SlateBiz Softwares</h3>
                 <p className="text-gray-600">
                   DH-079, 1st Floor Ansal Sushant City -1,<br />
                   Kalwar Road, Jaipur, Rajasthan 303706, India
@@ -269,7 +269,7 @@ function ContactSection() {
 
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">Contact</h4>
-                <p className="text-gray-600">+91 982 981 9204</p>
+                <p className="text-gray-600">925737668</p>
               </div>
 
               <div>
@@ -280,8 +280,7 @@ function ContactSection() {
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">Email</h4>
                 <p className="text-gray-600">
-                  info@xgriderp.com<br />
-                  support@xgriderp.com
+                  info@slatebiz.com
                 </p>
               </div>
             </div>

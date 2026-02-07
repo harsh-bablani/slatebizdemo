@@ -7,11 +7,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <img
-              src="/screenshot_2026-01-31_045821.png"
-              alt="xGrid Logo"
-              className="h-10 w-auto mb-4 brightness-0 invert"
-            />
+            <div className="text-lg font-bold text-blue-400 mb-4">
+              SlateBiz Softwares
+            </div>
             <p className="text-sm text-gray-400 leading-relaxed">
               Leading enterprise software development company specializing in intelligent, scalable, and secure digital ecosystems.
             </p>
@@ -75,11 +73,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="text-sm">+91 982 981 9204</span>
+                <span className="text-sm">925737668</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span className="text-sm">info@xgriderp.com</span>
+                <span className="text-sm">info@slatebiz.com</span>
               </li>
             </ul>
           </div>
@@ -87,7 +85,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} xGrid Softwares. All rights reserved.
+            &copy; {new Date().getFullYear()} SlateBiz Softwares. All rights reserved.
           </p>
         </div>
       </div>

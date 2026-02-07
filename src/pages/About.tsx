@@ -18,7 +18,7 @@ function HeroSection() {
   return (
     <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">About xGrid</h1>
+        <h1 className="text-5xl md:text-6xl font-bold mb-6">About SlateBiz</h1>
         <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
           Building intelligent digital ecosystems for modern businesses
         </p>
@@ -36,11 +36,11 @@ function WhoWeAreSection() {
 
           <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
             <p>
-              xGrid is a premium enterprise software and digital transformation company delivering intelligent, scalable, and secure technology solutions for modern businesses. We specialize in building industry-specific ERP systems and digital platforms that simplify operations, improve efficiency, and accelerate growth.
+              SlateBiz is a premium enterprise software and digital transformation company delivering intelligent, scalable, and secure technology solutions for modern businesses. We specialize in building industry-specific ERP systems and digital platforms that simplify operations, improve efficiency, and accelerate growth.
             </p>
 
             <p>
-              With a strong foundation in innovation and domain expertise, xGrid creates powerful software ecosystems that help organizations streamline workflows, manage data intelligently, and make faster, smarter business decisions.
+              With a strong foundation in innovation and domain expertise, SlateBiz creates powerful software ecosystems that help organizations streamline workflows, manage data intelligently, and make faster, smarter business decisions.
             </p>
 
             <p>
@@ -69,7 +69,7 @@ function WhatWeDoSection() {
           <h2 className="text-4xl font-bold text-gray-900 mb-8">What We Do</h2>
 
           <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-            At xGrid, we design and develop:
+            At SlateBiz, we design and develop:
           </p>
 
           <div className="grid md:grid-cols-2 gap-4 mb-8">
@@ -178,7 +178,7 @@ function WhyChooseSection() {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose xGrid</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose SlateBiz</h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </div>
 
@@ -233,7 +233,7 @@ function CommitmentSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl font-bold mb-6">Our Commitment</h2>
         <p className="text-xl leading-relaxed text-gray-300">
-          xGrid is committed to building future-ready digital ecosystems that combine technology, innovation, and business intelligence. We aim to be a trusted technology partner for enterprises looking to modernize operations, enhance customer experience, and achieve long-term success in a digital-first world.
+          SlateBiz is committed to building future-ready digital ecosystems that combine technology, innovation, and business intelligence. We aim to be a trusted technology partner for enterprises looking to modernize operations, enhance customer experience, and achieve long-term success in a digital-first world.
         </p>
       </div>
     </section>
