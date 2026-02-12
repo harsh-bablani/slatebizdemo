@@ -5,6 +5,7 @@ export default function About() {
     <div className="min-h-screen">
       <HeroSection />
       <WhoWeAreSection />
+      <FoundersSection />
       <WhatWeDoSection />
       <OurApproachSection />
       <WhyChooseSection />
@@ -22,6 +23,36 @@ function HeroSection() {
         <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
           Building intelligent digital ecosystems for modern businesses
         </p>
+      </div>
+    </section>
+  );
+}
+
+function FoundersSection() {
+  return (
+    <section className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-4xl font-bold text-gray-900 mb-12">Meet Our Founders</h2>
+        <div className="flex flex-wrap justify-center gap-16">
+          <div className="flex flex-col items-center">
+            <img
+              src="/Lokesh Sharma.png"
+              alt="Lokesh Sharma"
+              className="w-52 h-52 rounded-full object-cover shadow-lg mb-6 border-4 border-white"
+            />
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Lokesh Sharma</h3>
+            <p className="text-lg text-blue-600 font-medium">Founder</p>
+          </div>
+          <div className="flex flex-col items-center">
+            <img
+              src="/Umang Garg.jpeg"
+              alt="Umang Garg"
+              className="w-52 h-52 rounded-full object-cover shadow-lg mb-6 border-4 border-white"
+            />
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Umang Garg</h3>
+            <p className="text-lg text-blue-600 font-medium">Co-founder</p>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -3,14 +3,14 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-gray-300 dark:text-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
-            <div className="text-lg font-bold text-blue-400 mb-4">
+            <div className="text-lg font-bold text-blue-400 dark:text-blue-300 mb-4">
               SlateBiz Softwares
             </div>
-            <p className="text-sm text-gray-400 leading-relaxed">
+            <p className="text-sm text-gray-400 dark:text-gray-500 leading-relaxed">
               Leading enterprise software development company specializing in intelligent, scalable, and secure digital ecosystems.
             </p>
           </div>

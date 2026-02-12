@@ -20,51 +20,41 @@ function HeroSection() {
     <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920')] bg-cover bg-center opacity-10"></div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-            <Sparkles className="w-4 h-4" />
-            <span className="text-sm font-medium">Enterprise Software Solutions</span>
-          </div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-48 lg:py-56">
+        <div className="max-w-3xl mx-auto text-center">
 
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-center">
             Intelligent Solutions<br />
             for Modern Business
           </h1>
 
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed text-center">
             Smart Ecosystems. Seamless Operations. Scalable Growth
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/xjewel-erp"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl group"
-            >
-              Explore Products
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+          <div className="flex justify-center">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all"
             >
-              Get in Touch
+              Book a free demo
             </a>
           </div>
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
     </section>
   );
 }
 
 function AboutSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             About SlateBiz
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
@@ -72,57 +62,57 @@ function AboutSection() {
 
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
               SlateBiz is a leading enterprise software development company specializing in building intelligent, scalable, and secure digital ecosystems for modern businesses. We design industry-focused ERP solutions and digital platforms that help organizations automate operations, improve productivity, and achieve sustainable growth.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
               With expertise in Jewellery ERP, Hospital Management Systems, and enterprise-grade digital solutions, SlateBiz empowers companies with cutting-edge technology, robust architecture, and data-driven intelligence.
             </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               Our solutions are trusted by businesses across retail, manufacturing, healthcare, and service sectors, making SlateBiz a reliable partner for digital transformation and business automation.
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-6">
-            <div className="bg-blue-50 p-6 rounded-xl">
-              <Shield className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="font-semibold text-gray-900 mb-2">Secure</h3>
-              <p className="text-sm text-gray-600">Enterprise-grade security and compliance</p>
+            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+              <Shield className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Secure</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Enterprise-grade security and compliance</p>
             </div>
-            <div className="bg-green-50 p-6 rounded-xl">
-              <TrendingUp className="w-12 h-12 text-green-600 mb-4" />
-              <h3 className="font-semibold text-gray-900 mb-2">Scalable</h3>
-              <p className="text-sm text-gray-600">Built to grow with your business</p>
+            <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
+              <TrendingUp className="w-12 h-12 text-green-600 dark:text-green-400 mb-4" />
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Scalable</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Built to grow with your business</p>
             </div>
-            <div className="bg-orange-50 p-6 rounded-xl">
-              <Sparkles className="w-12 h-12 text-orange-600 mb-4" />
-              <h3 className="font-semibold text-gray-900 mb-2">Intelligent</h3>
-              <p className="text-sm text-gray-600">AI-driven insights and automation</p>
+            <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl">
+              <Sparkles className="w-12 h-12 text-orange-600 dark:text-orange-400 mb-4" />
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Intelligent</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">AI-driven insights and automation</p>
             </div>
-            <div className="bg-cyan-50 p-6 rounded-xl">
-              <Users className="w-12 h-12 text-cyan-600 mb-4" />
-              <h3 className="font-semibold text-gray-900 mb-2">Dedicated</h3>
-              <p className="text-sm text-gray-600">Customer-first approach always</p>
+            <div className="bg-cyan-50 dark:bg-cyan-900/20 p-6 rounded-xl">
+              <Users className="w-12 h-12 text-cyan-600 dark:text-cyan-400 mb-4" />
+              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Dedicated</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-300">Customer-first approach always</p>
             </div>
           </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Vision</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Vision</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               To become a globally trusted technology partner delivering world-class ERP software and digital solutions that redefine how industries operate, scale, and innovate.
             </p>
           </div>
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Mission</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Mission</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               To build powerful, user-centric, and secure software platforms that simplify complex business processes, enable real-time insights, and drive operational excellence.
             </p>
           </div>
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Values</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Values</h3>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               Innovation, industry-specific solutions, enterprise-grade security, scalable performance, and a customer-first approach in everything we do.
             </p>
           </div>

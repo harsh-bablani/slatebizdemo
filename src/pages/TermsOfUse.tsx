@@ -1,8 +1,8 @@
 export default function TermsOfUse() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Terms of Use</h1>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-8">
+        <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-8">Terms of Use</h1>
         
         <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
           
