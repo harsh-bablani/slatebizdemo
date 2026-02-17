@@ -43,31 +43,30 @@ export default function Header() {
             <div className="relative group">
               <button
                 className="flex items-center space-x-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                onMouseEnter={() => setIsProductsOpen(true)}
-                onMouseLeave={() => setIsProductsOpen(false)}
+                onClick={() => setIsProductsOpen(!isProductsOpen)}
               >
                 <span>Products</span>
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className={`w-4 h-4 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isProductsOpen && (
                 <div
                   className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-800 shadow-lg rounded-lg py-2"
-                  onMouseEnter={() => setIsProductsOpen(true)}
-                  onMouseLeave={() => setIsProductsOpen(false)}
                 >
                   <Link
                     to="/xjewel-erp"
                     className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    onClick={() => setIsProductsOpen(false)}
                   >
-                    <div className="font-medium">xJewel ERP</div>
+                    <div className="font-medium">JewelBiz</div>
                     <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Jewellery Management</div>
                   </Link>
                   <Link
                     to="/xcura-hms"
                     className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    onClick={() => setIsProductsOpen(false)}
                   >
-                    <div className="font-medium">xCura HMS</div>
+                    <div className="font-medium">CuraBiz</div>
                     <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Hospital Management</div>
                   </Link>
                 </div>
@@ -132,14 +131,14 @@ export default function Header() {
                 className="block pl-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                 onClick={() => setIsMenuOpen(false)}
               >
-                xJewel ERP
+                JewelBiz
               </Link>
               <Link
                 to="/xcura-hms"
                 className="block pl-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                 onClick={() => setIsMenuOpen(false)}
               >
-                xCura HMS
+                CuraBiz
               </Link>
             </div>
             <Link

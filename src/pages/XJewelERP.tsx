@@ -1,5 +1,5 @@
 import { Check, Gem, TrendingUp, Clock, Shield, Smartphone, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function XJewelERP() {
   return (
@@ -17,9 +17,32 @@ export default function XJewelERP() {
 }
 
 function HeroSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    '/J1.jpeg',
+    '/J2.jpeg',
+    '/J3.jpeg'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-20 overflow-hidden">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+            index === currentSlide ? 'opacity-60' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url('${slide}')` }}
+        />
+      ))}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <Gem className="w-4 h-4" />
@@ -27,7 +50,7 @@ function HeroSection() {
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            xJewel – Smart Jewellery ERP Software
+            JewelBiz – Smart Jewellery ERP Software
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
             Bring total control to your jewellery business — from metal to sale and karigar management. Track gold, silver, diamonds, gemstones, job work, wastage, and settlements in real time.
@@ -84,10 +107,10 @@ function WhyChooseSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Jewellers Choose xJewel ERP
+            Why Jewellers Choose JewelBiz
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Running a jewellery business involves complex inventory, purity control, job work, taxation, and customer management. xJewel is an all-in-one jewellery ERP software designed for retailers, wholesalers, and manufacturers.
+            Running a jewellery business involves complex inventory, purity control, job work, taxation, and customer management. JewelBiz is an all-in-one jewellery ERP software designed for retailers, wholesalers, and manufacturers.
           </p>
         </div>
 
@@ -232,7 +255,7 @@ function WhyTrustSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Top Jewellers Trust xJewel
+            Why Top Jewellers Trust JewelBiz
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
         </div>
@@ -293,8 +316,8 @@ function FAQSection() {
       answer: 'Yes, we provide complete data migration from your current software or Excel systems.',
     },
     {
-      question: 'Is xJewel suitable for a single store?',
-      answer: 'Absolutely. xJewel scales from single showroom to large multi-branch chains.',
+      question: 'Is JewelBiz suitable for a single store?',
+      answer: 'Absolutely. JewelBiz scales from single showroom to large multi-branch chains.',
     },
     {
       question: 'Do you support barcode and RFID?',
@@ -351,7 +374,7 @@ function CTASection() {
           Ready to Transform Your Jewellery Business?
         </h2>
         <p className="text-xl text-blue-100 mb-8">
-          Join hundreds of jewellers who trust xJewel ERP for their business
+          Join hundreds of jewellers who trust JewelBiz for their business
         </p>
         <a
           href="/#contact"

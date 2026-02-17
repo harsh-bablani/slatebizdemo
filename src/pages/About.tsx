@@ -87,8 +87,8 @@ function WhoWeAreSection() {
 function WhatWeDoSection() {
   const services = [
     'Enterprise Resource Planning (ERP) Systems',
-    'Jewellery Management Software (xJewel ERP)',
-    'Hospital Management Systems (xCura HMS)',
+    'Jewellery Management Software (JewelBiz)',
+    'Hospital Management Systems (CuraBiz)',
     'Custom Business Automation Platforms',
     'Digital Transformation & Growth Solutions',
   ];

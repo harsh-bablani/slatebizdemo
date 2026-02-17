@@ -51,12 +51,12 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link to="/xjewel-erp" className="text-sm hover:text-blue-400 transition-colors">
-                  xJewel ERP
+                  JewelBiz
                 </Link>
               </li>
               <li>
                 <Link to="/xcura-hms" className="text-sm hover:text-blue-400 transition-colors">
-                  xCura HMS
+                  CuraBiz
                 </Link>
               </li>
             </ul>
@@ -67,13 +67,18 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span className="text-sm">
+                <a
+                  href="https://maps.app.goo.gl/iq89dhBchA9J3fxi8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-blue-400 transition-colors"
+                >
                   DH-079, 1st Floor Ansal Sushant City -1, Kalwar Road, Jaipur, Rajasthan 303706, India
-                </span>
+                </a>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="text-sm">925737668</span>
+                <span className="text-sm">+91 925 737 3668</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />

@@ -268,7 +268,17 @@ export default function TermsOfUse() {
             </p>
             <div className="mt-4 bg-gray-100 p-4 rounded">
               <p><strong>Company Name:</strong> Slatebiz Softwares</p>
-              <p><strong>Address:</strong> DH-079, 1st Floor Ansal Sushant City -1, Kalwar Road, Jaipur, Rajasthan 303706, India</p>
+              <p>
+                <strong>Address:</strong>{' '}
+                <a
+                  href="https://maps.app.goo.gl/iq89dhBchA9J3fxi8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800"
+                >
+                  DH-079, 1st Floor Ansal Sushant City -1, Kalwar Road, Jaipur, Rajasthan 303706, India
+                </a>
+              </p>
               <p><strong>Email:</strong> info@slatebiz.com</p>
             </div>
           </section>

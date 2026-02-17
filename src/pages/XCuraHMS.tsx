@@ -1,4 +1,5 @@
 import { Check, Heart, Activity, Shield, Database, Globe, FileText, Users } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export default function XCuraHMS() {
   return (
@@ -14,9 +15,35 @@ export default function XCuraHMS() {
 }
 
 function HeroSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    '/H1.jpeg',
+    '/H2.jpeg',
+    '/H3.jpeg',
+    '/H4.jpeg',
+    '/H5.jpeg',
+    '/H6.jpeg'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="bg-gradient-to-br from-green-600 via-green-700 to-green-900 text-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative bg-gradient-to-br from-green-600 via-green-700 to-green-900 text-white py-20 overflow-hidden">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+            index === currentSlide ? 'opacity-60' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url('${slide}')` }}
+        />
+      ))}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <Heart className="w-4 h-4" />
@@ -24,7 +51,7 @@ function HeroSection() {
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            xCura HMS – Next-Generation Hospital Management Software
+            CuraBiz – Next-Generation Hospital Management Software
           </h1>
           <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
             Healthcare, Intelligently Managed. A complete Hospital ERP solution for multi-chain hospitals, clinics, and diagnostic labs.
@@ -85,10 +112,10 @@ function WhyChooseSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Why Healthcare Leaders Choose xCura HMS
+            Why Healthcare Leaders Choose CuraBiz
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            xCura HMS is a comprehensive hospital management system that integrates patient care, administration, diagnostics, pharmacy, billing, and financials into a single intelligent platform.
+            CuraBiz is a comprehensive hospital management system that integrates patient care, administration, diagnostics, pharmacy, billing, and financials into a single intelligent platform.
           </p>
         </div>
 
@@ -289,7 +316,7 @@ function CTASection() {
           Ready to Transform Your Healthcare Operations?
         </h2>
         <p className="text-xl text-green-100 mb-8">
-          Join leading hospitals who trust xCura HMS for intelligent healthcare management
+          Join leading hospitals who trust CuraBiz for intelligent healthcare management
         </p>
         <a
           href="/#contact"

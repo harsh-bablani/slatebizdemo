@@ -1,25 +1,47 @@
+import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Shield, TrendingUp, Users, Award, Star } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { ArrowRight, Award, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <AboutSection />
       <ProductsSection />
-      <BrandSlider />
-      <ContactSection />
       <ReviewsSection />
+      <ContactSection />
     </div>
   );
 }
 
 function HeroSection() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = [
+    '/H1.jpeg',
+    '/H2.jpeg',
+    '/H3.jpeg',
+    '/J1.jpeg',
+    '/J2.jpeg',
+    '/J3.jpeg'
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1920')] bg-cover bg-center opacity-10"></div>
-
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+            index === currentSlide ? 'opacity-20' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url('${slide}')` }}
+        />
+      ))}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-48 lg:py-56">
         <div className="max-w-3xl mx-auto text-center">
 
@@ -49,79 +71,6 @@ function HeroSection() {
   );
 }
 
-function AboutSection() {
-  return (
-    <section className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            About SlateBiz
-          </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <div>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              SlateBiz is a leading enterprise software development company specializing in building intelligent, scalable, and secure digital ecosystems for modern businesses. We design industry-focused ERP solutions and digital platforms that help organizations automate operations, improve productivity, and achieve sustainable growth.
-            </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-              With expertise in Jewellery ERP, Hospital Management Systems, and enterprise-grade digital solutions, SlateBiz empowers companies with cutting-edge technology, robust architecture, and data-driven intelligence.
-            </p>
-            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              Our solutions are trusted by businesses across retail, manufacturing, healthcare, and service sectors, making SlateBiz a reliable partner for digital transformation and business automation.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
-              <Shield className="w-12 h-12 text-blue-600 dark:text-blue-400 mb-4" />
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Secure</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">Enterprise-grade security and compliance</p>
-            </div>
-            <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
-              <TrendingUp className="w-12 h-12 text-green-600 dark:text-green-400 mb-4" />
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Scalable</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">Built to grow with your business</p>
-            </div>
-            <div className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl">
-              <Sparkles className="w-12 h-12 text-orange-600 dark:text-orange-400 mb-4" />
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Intelligent</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">AI-driven insights and automation</p>
-            </div>
-            <div className="bg-cyan-50 dark:bg-cyan-900/20 p-6 rounded-xl">
-              <Users className="w-12 h-12 text-cyan-600 dark:text-cyan-400 mb-4" />
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Dedicated</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">Customer-first approach always</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Vision</h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              To become a globally trusted technology partner delivering world-class ERP software and digital solutions that redefine how industries operate, scale, and innovate.
-            </p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Mission</h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              To build powerful, user-centric, and secure software platforms that simplify complex business processes, enable real-time insights, and drive operational excellence.
-            </p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Values</h3>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              Innovation, industry-specific solutions, enterprise-grade security, scalable performance, and a customer-first approach in everything we do.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ProductsSection() {
   return (
     <section className="py-20 bg-gray-50">
@@ -141,7 +90,7 @@ function ProductsSection() {
             <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
               <div className="text-white text-center p-8">
                 <Award className="w-16 h-16 mx-auto mb-4" />
-                <h3 className="text-3xl font-bold">xJewel ERP</h3>
+                <h3 className="text-3xl font-bold">JewelBiz</h3>
               </div>
             </div>
             <div className="p-8">
@@ -165,7 +114,7 @@ function ProductsSection() {
             <div className="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
               <div className="text-white text-center p-8">
                 <Award className="w-16 h-16 mx-auto mb-4" />
-                <h3 className="text-3xl font-bold">xCura HMS</h3>
+                <h3 className="text-3xl font-bold">CuraBiz</h3>
               </div>
             </div>
             <div className="p-8">
@@ -190,51 +139,6 @@ function ProductsSection() {
   );
 }
 
-function BrandSlider() {
-  const brands = [
-    'Enterprise Partner',
-    'Trusted by Industry Leaders',
-    'Global Solutions',
-    'Innovation Award',
-    'Best ERP Provider',
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % brands.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [brands.length]);
-
-  return (
-    <section className="py-12 bg-white border-y border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <p className="text-sm text-gray-500 uppercase tracking-wide font-semibold">
-            Trusted By Industry Leaders
-          </p>
-        </div>
-        <div className="flex justify-center items-center overflow-hidden">
-          <div className="flex space-x-12 animate-pulse">
-            {brands.map((brand, index) => (
-              <div
-                key={index}
-                className={`text-2xl font-bold text-gray-400 transition-opacity ${
-                  index === currentIndex ? 'opacity-100' : 'opacity-30'
-                }`}
-              >
-                {brand}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function ContactSection() {
   return (
     <section id="contact" className="py-20 bg-gray-50">
@@ -251,10 +155,15 @@ function ContactSection() {
             <div className="space-y-6">
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">SlateBiz Softwares</h3>
-                <p className="text-gray-600">
+                <a
+                  href="https://maps.app.goo.gl/iq89dhBchA9J3fxi8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-blue-600 transition-colors block"
+                >
                   DH-079, 1st Floor Ansal Sushant City -1,<br />
                   Kalwar Road, Jaipur, Rajasthan 303706, India
-                </p>
+                </a>
               </div>
 
               <div>
@@ -341,58 +250,156 @@ function ContactSection() {
 }
 
 function ReviewsSection() {
-  const reviews = [
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const clients = [
     {
-      name: 'Rajesh Kumar',
-      company: 'Kumar Jewellers',
-      rating: 5,
-      text: 'xJewel ERP has completely transformed our inventory management. The RFID tracking and karigar management features are exceptional.',
+      name: 'Rajesh Hissaria',
+      company: 'B.L.Hissaria Jewellers Pvt. Ltd.',
+      location: 'Hanumangarh',
+      product: 'JewelBiz',
+      text: "JewelBiz has revolutionized our inventory tracking. The precision and ease of use are unmatched in the industry.",
     },
     {
-      name: 'Dr. Priya Sharma',
-      company: 'City Care Hospital',
-      rating: 5,
-      text: 'xCura HMS streamlined our entire hospital operations. Patient management and billing have never been this efficient.',
+      name: 'Sandeep Hissaria',
+      company: 'B.L.Hissaria Jewellers Pvt. Ltd.',
+      location: 'Hanumangarh',
+      product: 'JewelBiz',
+      text: "Managing multiple branches has never been easier. Real-time data synchronization keeps us ahead of the competition.",
     },
     {
-      name: 'Amit Patel',
-      company: 'Patel Diamonds',
-      rating: 5,
-      text: 'The best jewellery software we have used. Real-time reporting and accurate stock valuation have improved our profitability significantly.',
+      name: 'Sachin Hissaria',
+      company: 'B.L.Hissaria Jewellers Pvt. Ltd.',
+      location: 'Hanumangarh',
+      product: 'JewelBiz',
+      text: "The karigar management module is a game-changer. We now have complete visibility over our gold wastage and job work.",
+    },
+    {
+      name: 'Aditya Hissaria',
+      company: 'Hissaria Art Palace Pvt Ltd',
+      location: 'Hanumangarh',
+      product: 'JewelBiz',
+      text: "Excellent support and a robust platform. It handles our complex billing requirements effortlessly.",
+    },
+    {
+      name: 'Kalpit Hissaria',
+      company: 'Hissaria Art Palace Pvt Ltd',
+      location: 'Hanumangarh',
+      product: 'JewelBiz',
+      text: "From procurement to sales, everything is streamlined. Highly recommended for any growing jewellery business.",
+    },
+    {
+      name: 'Mudit Hissaria',
+      company: 'Hissaria Gems Private Limited',
+      location: 'Hanumangarh',
+      product: 'JewelBiz',
+      text: "The reporting features give us deep insights into our business performance. A must-have tool for modern jewellers.",
+    },
+    {
+      name: 'Abhishek Jain',
+      company: 'BTR & SONS',
+      location: 'Jaipur',
+      product: 'JewelBiz',
+      text: "JewelBiz is intuitive and powerful. It has significantly reduced our manual errors and improved operational efficiency.",
+    },
+    {
+      name: 'Manoj Bansal',
+      company: 'Mahalaxmi Refinery',
+      location: 'Hanumangarh',
+      product: 'JewelBiz',
+      text: "Security and reliability were our top priorities, and JewelBiz delivers on both fronts perfectly.",
+    },
+    {
+      name: 'Manoj Bihani',
+      company: 'GS Bihani Jeweller',
+      location: 'Rawatsar, Hanumangarh',
+      product: 'JewelBiz',
+      text: "The customer management features have helped us build stronger relationships with our clients. Truly exceptional software.",
     },
   ];
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { clientWidth } = scrollRef.current;
+      const scrollAmount = direction === 'left' ? -clientWidth / 2 : clientWidth / 2;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 50) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+      }
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Customer Reviews
+            Trusted by Industry Leaders
           </h2>
           <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600">
-            Trusted by businesses across industries
+            Powering businesses with intelligent solutions
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {reviews.map((review, index) => (
+        <div className="relative group">
+          <button 
+            onClick={() => scroll('left')}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white p-3 rounded-full shadow-lg text-gray-600 hover:text-blue-600 transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          <button 
+            onClick={() => scroll('right')}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white p-3 rounded-full shadow-lg text-gray-600 hover:text-blue-600 transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div 
+            ref={scrollRef}
+            className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
+            {clients.map((client, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow"
+              className="min-w-[260px] md:min-w-[320px] flex-shrink-0 snap-center bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-all border border-gray-100 group"
             >
-              <div className="flex mb-4">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                ))}
+              <div className="flex items-start justify-between mb-3">
+                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                  {client.name.charAt(0)}
+                </div>
+                <div className="flex items-center space-x-1 bg-white px-2 py-1 rounded-full border border-gray-200 shadow-sm">
+                  <Award className="w-3 h-3 text-blue-600" />
+                  <span className="text-[10px] font-medium text-gray-700">{client.product}</span>
+                </div>
               </div>
-              <p className="text-gray-700 mb-6 leading-relaxed">"{review.text}"</p>
-              <div>
-                <p className="font-semibold text-gray-900">{review.name}</p>
-                <p className="text-sm text-gray-500">{review.company}</p>
+              
+              <h3 className="text-base font-bold text-gray-900 mb-0.5">{client.name}</h3>
+              <p className="text-blue-600 font-medium mb-2 text-xs">{client.company}</p>
+              <p className="text-gray-600 text-xs italic mb-3 leading-relaxed line-clamp-2">"{client.text}"</p>
+              
+              <div className="flex items-center text-gray-500 text-xs pt-3 border-t border-gray-200">
+                <MapPin className="w-3 h-3 mr-1.5 text-gray-400" />
+                {client.location}
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>
