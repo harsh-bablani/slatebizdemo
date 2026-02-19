@@ -28,13 +28,24 @@ export default function Header() {
             </div>
           </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-4">
+            <Link
+              to="/"
+              className={`px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium transition-all hover:shadow-sm ${
+                isActive('/')
+                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800'
+              }`}
+            >
+              Home
+            </Link>
+
             <Link
               to="/about"
-              className={`text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium transition-all hover:shadow-sm ${
                 isActive('/about')
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800'
               }`}
             >
               About
@@ -42,7 +53,7 @@ export default function Header() {
 
             <div className="relative group">
               <button
-                className="flex items-center space-x-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="flex items-center space-x-1 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800 transition-all hover:shadow-sm"
                 onClick={() => setIsProductsOpen(!isProductsOpen)}
               >
                 <span>Products</span>
@@ -75,10 +86,10 @@ export default function Header() {
 
             <Link
               to="/blogs"
-              className={`text-sm font-medium transition-colors ${
+              className={`px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium transition-all hover:shadow-sm ${
                 isActive('/blogs')
-                  ? 'text-blue-600 dark:text-blue-400'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800'
               }`}
             >
               Blogs
@@ -86,7 +97,7 @@ export default function Header() {
 
             <Link
               to="/#contact"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800 transition-all hover:shadow-sm"
               onClick={(e) => {
                 e.preventDefault();
                 if (location.pathname !== '/') {
@@ -101,7 +112,7 @@ export default function Header() {
 
             <button
               onClick={() => setIsDark(!isDark)}
-              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
@@ -117,6 +128,13 @@ export default function Header() {
 
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
+            <Link
+              to="/"
+              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
             <Link
               to="/about"
               className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"

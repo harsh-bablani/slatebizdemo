@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Award, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, Award, MapPin, ChevronLeft, ChevronRight, Quote, Phone, Mail, ChevronDown, Check } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -8,8 +8,99 @@ export default function Home() {
       <HeroSection />
       <ProductsSection />
       <ReviewsSection />
+      <StatsSection />
       <ContactSection />
     </div>
+  );
+}
+
+function StatsSection() {
+  return (
+    <section className="py-20 bg-blue-900 text-white relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-20"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <StatCard end={10} label="Year-Old Company" />
+          <StatCard end={20} suffix="+" label="Years Client Experience in Jewellery Industry" />
+          <StatCard end={1.5} suffix=" Lakh+" decimals={1} label="Invoices Handled" />
+          <StatCard end={50} suffix="+" label="Business Users" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function StatCard({ end, suffix = '', decimals = 0, label }: { end: number, suffix?: string, decimals?: number, label: string }) {
+  return (
+    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+      <div className="text-4xl md:text-5xl font-bold text-white mb-3">
+        <CountUp end={end} suffix={suffix} decimals={decimals} />
+      </div>
+      <p className="text-blue-100 font-medium leading-relaxed">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+function CountUp({ end, duration = 2000, suffix = '', decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) {
+  const [count, setCount] = useState(0);
+  const countRef = useRef<HTMLSpanElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    let animationFrame: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / duration, 1);
+      
+      const ease = 1 - Math.pow(1 - percentage, 4);
+      
+      setCount(end * ease);
+
+      if (progress < duration) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, duration, isVisible]);
+
+  return (
+    <span ref={countRef}>
+      {count.toFixed(decimals)}{suffix}
+    </span>
   );
 }
 
@@ -140,108 +231,179 @@ function ProductsSection() {
 }
 
 function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    // Replace this URL with your Google Apps Script Web App URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyXR8NMI65IjoyjImSGBYXhIuXMG618qlmpbLAVRpKWKSuo5aUTeqkDgvRwjCdLjH1sUw/exec';
+
+    try {
+      await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
+      setIsSubmitted(true);
+      form.reset();
+    } catch (error) {
+      console.error('Error!', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <section id="contact" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12">
+    <section id="contact" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Get in Touch
+            <div className="inline-flex items-center space-x-2 bg-blue-50 px-3 py-1 rounded-full text-blue-600 text-sm font-medium mb-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              <span>Contact Us</span>
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              Let's Start a Conversation
             </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              Ready to streamline your business? Fill out the form and our team will contact you within 24 hours.
+            <p className="text-lg text-gray-600 mb-10 leading-relaxed">
+              Ready to transform your business operations? Our team is here to help you find the perfect solution for your needs.
             </p>
 
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">SlateBiz Softwares</h3>
-                <a
-                  href="https://maps.app.goo.gl/iq89dhBchA9J3fxi8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-600 transition-colors block"
-                >
-                  DH-079, 1st Floor Ansal Sushant City -1,<br />
-                  Kalwar Road, Jaipur, Rajasthan 303706, India
-                </a>
+            <div className="space-y-8">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-1">Visit Us</h3>
+                  <a
+                    href="https://maps.app.goo.gl/iq89dhBchA9J3fxi8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-blue-600 transition-colors leading-relaxed"
+                  >
+                    DH-079, 1st Floor Ansal Sushant City -1,<br />
+                    Kalwar Road, Jaipur, Rajasthan 303706, India
+                  </a>
+                </div>
               </div>
 
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Contact</h4>
-                <p className="text-gray-600">+91 925 737 3668</p>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600">
+                  <Phone className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-1">Call Us</h3>
+                  <p className="text-gray-600 mb-1">Sales: +91 925 737 3668</p>
+                  <p className="text-gray-600">Support: +91 993 093 9903</p>
+                </div>
               </div>
 
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Support</h4>
-                <p className="text-gray-600">+91 993 093 9903</p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Email</h4>
-                <p className="text-gray-600">
-                  info@slatebiz.com
-                </p>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-1">Email Us</h3>
+                  <a href="mailto:info@slatebiz.com" className="text-gray-600 hover:text-blue-600 transition-colors">
+                    info@slatebiz.com
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <form className="space-y-6">
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100 relative">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full -z-10"></div>
+            
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Request a Callback</h3>
+            {isSubmitted ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Check className="w-8 h-8 text-green-600" />
+                </div>
+                <h4 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h4>
+                <p className="text-gray-600">We'll get back to you shortly.</p>
+                <button onClick={() => setIsSubmitted(false)} className="mt-6 text-blue-600 font-medium hover:text-blue-700">
+                  Send another message
+                </button>
+              </div>
+            ) : (
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
                   Full Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  placeholder="John Doe"
+                  name="name"
+                  required
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                  placeholder="Enter your name"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
                   Phone Number
                 </label>
                 <input
                   type="tel"
                   id="phone"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  name="phone"
+                  required
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                   placeholder="+91 98765 43210"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
+                <label htmlFor="product" className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Interested Product
                 </label>
-                <textarea
-                  id="message"
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  placeholder="Tell us about your requirements..."
-                ></textarea>
+                <div className="relative">
+                  <select
+                    id="product"
+                    name="product"
+                    required
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none appearance-none cursor-pointer"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Select a product</option>
+                    <option value="jewelbiz">JewelBiz (Jewellery ERP)</option>
+                    <option value="curabiz">CuraBiz (Hospital ERP)</option>
+                    <option value="others">Others</option>
+                  </select>
+                  <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+                disabled={isSubmitting}
+                className={`w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-blue-500/30 mt-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+              
+              <p className="text-xs text-center text-gray-500 mt-4">
+                By submitting this form, you agree to our privacy policy.
+              </p>
             </form>
+            )}
           </div>
         </div>
       </div>
@@ -256,64 +418,46 @@ function ReviewsSection() {
     {
       name: 'Rajesh Hissaria',
       company: 'B.L.Hissaria Jewellers Pvt. Ltd.',
-      location: 'Hanumangarh',
-      product: 'JewelBiz',
       text: "JewelBiz has revolutionized our inventory tracking. The precision and ease of use are unmatched in the industry.",
     },
     {
       name: 'Sandeep Hissaria',
       company: 'B.L.Hissaria Jewellers Pvt. Ltd.',
-      location: 'Hanumangarh',
-      product: 'JewelBiz',
       text: "Managing multiple branches has never been easier. Real-time data synchronization keeps us ahead of the competition.",
     },
     {
       name: 'Sachin Hissaria',
       company: 'B.L.Hissaria Jewellers Pvt. Ltd.',
-      location: 'Hanumangarh',
-      product: 'JewelBiz',
       text: "The karigar management module is a game-changer. We now have complete visibility over our gold wastage and job work.",
     },
     {
       name: 'Aditya Hissaria',
       company: 'Hissaria Art Palace Pvt Ltd',
-      location: 'Hanumangarh',
-      product: 'JewelBiz',
       text: "Excellent support and a robust platform. It handles our complex billing requirements effortlessly.",
     },
     {
       name: 'Kalpit Hissaria',
       company: 'Hissaria Art Palace Pvt Ltd',
-      location: 'Hanumangarh',
-      product: 'JewelBiz',
       text: "From procurement to sales, everything is streamlined. Highly recommended for any growing jewellery business.",
     },
     {
       name: 'Mudit Hissaria',
       company: 'Hissaria Gems Private Limited',
-      location: 'Hanumangarh',
-      product: 'JewelBiz',
       text: "The reporting features give us deep insights into our business performance. A must-have tool for modern jewellers.",
     },
     {
       name: 'Abhishek Jain',
       company: 'BTR & SONS',
-      location: 'Jaipur',
-      product: 'JewelBiz',
       text: "JewelBiz is intuitive and powerful. It has significantly reduced our manual errors and improved operational efficiency.",
     },
     {
       name: 'Manoj Bansal',
       company: 'Mahalaxmi Refinery',
-      location: 'Hanumangarh',
-      product: 'JewelBiz',
       text: "Security and reliability were our top priorities, and JewelBiz delivers on both fronts perfectly.",
     },
     {
       name: 'Manoj Bihani',
       company: 'GS Bihani Jeweller',
-      location: 'Rawatsar, Hanumangarh',
-      product: 'JewelBiz',
       text: "The customer management features have helped us build stronger relationships with our clients. Truly exceptional software.",
     },
   ];
@@ -370,32 +514,22 @@ function ReviewsSection() {
 
           <div 
             ref={scrollRef}
-            className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar"
+            className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar px-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <style>{`.hide-scrollbar::-webkit-scrollbar { display: none; }`}</style>
             {clients.map((client, index) => (
             <div
               key={index}
-              className="min-w-[260px] md:min-w-[320px] flex-shrink-0 snap-center bg-gray-50 rounded-xl p-5 hover:shadow-lg transition-all border border-gray-100 group"
+              className="min-w-[260px] w-[260px] h-[260px] flex-shrink-0 snap-center bg-white rounded-xl p-6 hover:shadow-xl transition-all border border-gray-200 flex flex-col relative"
             >
-              <div className="flex items-start justify-between mb-3">
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-lg group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                  {client.name.charAt(0)}
-                </div>
-                <div className="flex items-center space-x-1 bg-white px-2 py-1 rounded-full border border-gray-200 shadow-sm">
-                  <Award className="w-3 h-3 text-blue-600" />
-                  <span className="text-[10px] font-medium text-gray-700">{client.product}</span>
-                </div>
+              <Quote className="absolute top-4 right-4 w-8 h-8 text-blue-100" />
+              <div className="flex-1 flex items-center">
+                <p className="text-gray-700 text-lg italic leading-relaxed">"{client.text}"</p>
               </div>
-              
-              <h3 className="text-base font-bold text-gray-900 mb-0.5">{client.name}</h3>
-              <p className="text-blue-600 font-medium mb-2 text-xs">{client.company}</p>
-              <p className="text-gray-600 text-xs italic mb-3 leading-relaxed line-clamp-2">"{client.text}"</p>
-              
-              <div className="flex items-center text-gray-500 text-xs pt-3 border-t border-gray-200">
-                <MapPin className="w-3 h-3 mr-1.5 text-gray-400" />
-                {client.location}
+              <div>
+                <h3 className="text-base font-bold text-gray-900 mb-1">{client.name}</h3>
+                <p className="text-blue-600 font-medium text-sm">{client.company}</p>
               </div>
             </div>
           ))}

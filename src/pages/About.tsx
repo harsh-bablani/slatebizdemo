@@ -1,9 +1,11 @@
+import { useState, useEffect, useRef } from 'react';
 import { Target, Lightbulb, Heart, Shield, TrendingUp, Users, Globe, Award } from 'lucide-react';
 
 export default function About() {
   return (
     <div className="min-h-screen">
       <HeroSection />
+      <StatsSection />
       <WhoWeAreSection />
       <FoundersSection />
       <WhatWeDoSection />
@@ -28,6 +30,96 @@ function HeroSection() {
   );
 }
 
+function StatsSection() {
+  return (
+    <section className="py-20 bg-blue-900 text-white relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-20"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <StatCard end={10} label="Year-Old Company" />
+          <StatCard end={20} suffix="+" label="Years Client Experience in Jewellery Industry" />
+          <StatCard end={1.5} suffix=" Lakh+" decimals={1} label="Invoices Handled" />
+          <StatCard end={50} suffix="+" label="Business Users" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function StatCard({ end, suffix = '', decimals = 0, label }: { end: number, suffix?: string, decimals?: number, label: string }) {
+  return (
+    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors">
+      <div className="text-4xl md:text-5xl font-bold text-white mb-3">
+        <CountUp end={end} suffix={suffix} decimals={decimals} />
+      </div>
+      <p className="text-blue-100 font-medium leading-relaxed">
+        {label}
+      </p>
+    </div>
+  );
+}
+
+function CountUp({ end, duration = 2000, suffix = '', decimals = 0 }: { end: number, duration?: number, suffix?: string, decimals?: number }) {
+  const [count, setCount] = useState(0);
+  const countRef = useRef<HTMLSpanElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    let animationFrame: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percentage = Math.min(progress / duration, 1);
+      
+      const ease = 1 - Math.pow(1 - percentage, 4);
+      
+      setCount(end * ease);
+
+      if (progress < duration) {
+        animationFrame = requestAnimationFrame(animate);
+      } else {
+        setCount(end);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [end, duration, isVisible]);
+
+  return (
+    <span ref={countRef}>
+      {count.toFixed(decimals)}{suffix}
+    </span>
+  );
+}
+
 function FoundersSection() {
   return (
     <section className="py-20 bg-gray-50">
@@ -40,7 +132,7 @@ function FoundersSection() {
               alt="Lokesh Sharma"
               className="w-52 h-52 rounded-full object-cover shadow-lg mb-6 border-4 border-white"
             />
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">Lokesh Sharma</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Lokesh Verma</h3>
             <p className="text-lg text-blue-600 font-medium">Founder</p>
           </div>
           <div className="flex flex-col items-center">

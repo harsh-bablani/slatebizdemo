@@ -1,97 +1,61 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Twitter, Linkedin, Instagram, Facebook } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-gray-300 dark:text-gray-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div>
-            <div className="text-lg font-bold text-blue-400 dark:text-blue-300 mb-4">
-              SlateBiz Softwares
-            </div>
-            <p className="text-sm text-gray-400 dark:text-gray-500 leading-relaxed">
-              Leading enterprise software development company specializing in intelligent, scalable, and secure digital ecosystems.
-            </p>
+    <footer className="bg-gray-900 dark:bg-gray-950 text-gray-300 dark:text-gray-400 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center gap-4">
+          {/* Social Media Icons */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-blue-400 transition-colors"
+            >
+              <Twitter className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-blue-400 transition-colors"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-pink-400 transition-colors"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-blue-600 transition-colors"
+            >
+              <Facebook className="w-5 h-5" />
+            </a>
           </div>
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-sm hover:text-blue-400 transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="text-sm hover:text-blue-400 transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/blogs" className="text-sm hover:text-blue-400 transition-colors">
-                  Blogs
-                </Link>
-              </li>
-              <li>
-                <Link to="/terms-of-use" className="text-sm hover:text-blue-400 transition-colors">
-                  Terms of Use
-                </Link>
-              </li>
-              <li>
-                <Link to="/privacy-policy" className="text-sm hover:text-blue-400 transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
+          {/* Policy Links */}
+          <div className="flex items-center gap-4 text-sm">
+            <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">
+              Privacy Policy
+            </Link>
+            <Link to="/terms-of-use" className="hover:text-blue-400 transition-colors">
+              User Policy
+            </Link>
           </div>
 
-          <div>
-            <h3 className="text-white font-semibold mb-4">Products</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/xjewel-erp" className="text-sm hover:text-blue-400 transition-colors">
-                  JewelBiz
-                </Link>
-              </li>
-              <li>
-                <Link to="/xcura-hms" className="text-sm hover:text-blue-400 transition-colors">
-                  CuraBiz
-                </Link>
-              </li>
-            </ul>
+          {/* Copyright */}
+          <div className="text-sm text-gray-400">
+            © 2026 Slatebiz. All rights reserved.
           </div>
-
-          <div>
-            <h3 className="text-white font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-2">
-                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <a
-                  href="https://maps.app.goo.gl/iq89dhBchA9J3fxi8"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm hover:text-blue-400 transition-colors"
-                >
-                  DH-079, 1st Floor Ansal Sushant City -1, Kalwar Road, Jaipur, Rajasthan 303706, India
-                </a>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 flex-shrink-0" />
-                <span className="text-sm">+91 925 737 3668</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 flex-shrink-0" />
-                <span className="text-sm">info@slatebiz.com</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} SlateBiz Softwares. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
