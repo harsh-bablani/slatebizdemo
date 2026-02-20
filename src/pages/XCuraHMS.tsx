@@ -33,7 +33,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-br from-green-600 via-green-700 to-green-900 text-white py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-accent-600 via-accent-700 to-accent-900 text-white py-20 overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -53,11 +53,11 @@ function HeroSection() {
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             CuraBiz – Next-Generation Hospital Management Software
           </h1>
-          <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-accent-100 mb-8 max-w-4xl mx-auto leading-relaxed">
             Healthcare, Intelligently Managed. A complete Hospital ERP solution for multi-chain hospitals, clinics, and diagnostic labs.
           </p>
 
-          <p className="text-lg text-green-100 mb-8">
+          <p className="text-lg text-accent-100 mb-8">
             Secure, scalable, and designed to streamline clinical, operational, and financial workflows with real-time intelligence.
           </p>
 
@@ -78,7 +78,7 @@ function HeroSection() {
 
           <a
             href="/#contact"
-            className="inline-block bg-white text-green-600 font-semibold px-8 py-4 rounded-lg hover:bg-green-50 transition-all shadow-lg hover:shadow-xl"
+            className="inline-block bg-white text-accent-600 font-semibold px-8 py-4 rounded-lg hover:bg-accent-50 transition-all shadow-lg hover:shadow-xl"
           >
             Request Demo
           </a>
@@ -121,8 +121,8 @@ function WhyChooseSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="bg-gradient-to-br from-green-50 to-white p-8 rounded-xl border border-green-100">
-              <benefit.icon className="w-12 h-12 text-green-600 mb-4" />
+            <div key={index} className="bg-gradient-to-br from-accent-50 to-white p-8 rounded-xl border border-accent-100">
+              <benefit.icon className="w-12 h-12 text-accent-500 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 {benefit.title}
               </h3>
@@ -170,7 +170,7 @@ function CoreModulesSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Core Modules
           </h2>
-          <div className="w-20 h-1 bg-green-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-accent-500 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -180,7 +180,7 @@ function CoreModulesSection() {
               className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-start space-x-3 mb-3">
-                <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                <Check className="w-5 h-5 text-accent-500 flex-shrink-0 mt-1" />
                 <h3 className="text-lg font-semibold text-gray-900">{module.title}</h3>
               </div>
               <p className="text-gray-600 text-sm leading-relaxed ml-8">{module.description}</p>
@@ -218,31 +218,31 @@ function TechnologySection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Enterprise Technology & Security
           </h2>
-          <div className="w-20 h-1 bg-green-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-accent-500 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-green-600 to-green-800 text-white p-8 rounded-xl">
+          <div className="bg-gradient-to-br from-accent-500 to-accent-700 text-white p-8 rounded-xl">
             <Shield className="w-12 h-12 mb-6" />
             <h3 className="text-2xl font-bold mb-6">Banking-Grade Data Protection</h3>
             <ul className="space-y-3">
               {securityFeatures.map((feature, index) => (
                 <li key={index} className="flex items-start space-x-2">
                   <Check className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                  <span className="text-green-100">{feature}</span>
+                  <span className="text-accent-100">{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 rounded-xl">
+          <div className="bg-gradient-to-br from-primary-500 to-primary-700 text-white p-8 rounded-xl">
             <Database className="w-12 h-12 mb-6" />
             <h3 className="text-2xl font-bold mb-6">Scalable Infrastructure</h3>
             <ul className="space-y-3">
               {infrastructureFeatures.map((feature, index) => (
                 <li key={index} className="flex items-start space-x-2">
                   <Check className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                  <span className="text-blue-100">{feature}</span>
+                  <span className="text-primary-100">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -289,14 +289,14 @@ function BusinessModelsSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Built for Every Healthcare Model
           </h2>
-          <div className="w-20 h-1 bg-green-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-accent-500 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {models.map((model, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-green-600"
+              className="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-shadow border-t-4 border-accent-500"
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-4">{model.title}</h3>
               <p className="text-gray-600 leading-relaxed">{model.description}</p>
@@ -310,17 +310,17 @@ function BusinessModelsSection() {
 
 function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-green-600 to-green-800 text-white">
+    <section className="py-20 bg-gradient-to-br from-accent-500 to-accent-700 text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Ready to Transform Your Healthcare Operations?
         </h2>
-        <p className="text-xl text-green-100 mb-8">
+        <p className="text-xl text-accent-100 mb-8">
           Join leading hospitals who trust CuraBiz for intelligent healthcare management
         </p>
         <a
           href="/#contact"
-          className="inline-block bg-white text-green-600 font-semibold px-8 py-4 rounded-lg hover:bg-green-50 transition-all shadow-lg hover:shadow-xl"
+          className="inline-block bg-white text-accent-600 font-semibold px-8 py-4 rounded-lg hover:bg-accent-50 transition-all shadow-lg hover:shadow-xl"
         >
           Get Started Today
         </a>

@@ -22,10 +22,12 @@ export default function Header() {
     <header className="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <Link to="/" className="flex-shrink-0">
-            <div className="text-xl font-bold text-blue-600 dark:text-blue-400 whitespace-nowrap">
-              SlateBiz Softwares
-            </div>
+<Link to="/" className="flex-shrink-0">
+            <img 
+              src="/logo.jpg" 
+              alt="SlateBiz Softwares" 
+              className="h-20 w-auto object-contain"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center space-x-4">
@@ -33,8 +35,8 @@ export default function Header() {
               to="/"
               className={`px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium transition-all hover:shadow-sm ${
                 isActive('/')
-                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800'
+                  ? 'text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-gray-800'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:border-primary-200 dark:hover:border-primary-800'
               }`}
             >
               Home
@@ -44,8 +46,8 @@ export default function Header() {
               to="/about"
               className={`px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium transition-all hover:shadow-sm ${
                 isActive('/about')
-                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800'
+                  ? 'text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-gray-800'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:border-primary-200 dark:hover:border-primary-800'
               }`}
             >
               About
@@ -53,7 +55,7 @@ export default function Header() {
 
             <div className="relative group">
               <button
-                className="flex items-center space-x-1 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800 transition-all hover:shadow-sm"
+                className="flex items-center space-x-1 px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:border-primary-200 dark:hover:border-primary-800 transition-all hover:shadow-sm"
                 onClick={() => setIsProductsOpen(!isProductsOpen)}
               >
                 <span>Products</span>
@@ -66,7 +68,7 @@ export default function Header() {
                 >
                   <Link
                     to="/xjewel-erp"
-                    className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                     onClick={() => setIsProductsOpen(false)}
                   >
                     <div className="font-medium">JewelBiz</div>
@@ -74,7 +76,7 @@ export default function Header() {
                   </Link>
                   <Link
                     to="/xcura-hms"
-                    className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-primary-50 dark:hover:bg-gray-700 hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
                     onClick={() => setIsProductsOpen(false)}
                   >
                     <div className="font-medium">CuraBiz</div>
@@ -88,8 +90,8 @@ export default function Header() {
               to="/blogs"
               className={`px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium transition-all hover:shadow-sm ${
                 isActive('/blogs')
-                  ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-gray-800'
-                  : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800'
+                  ? 'text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-gray-800'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:border-primary-200 dark:hover:border-primary-800'
               }`}
             >
               Blogs
@@ -97,7 +99,7 @@ export default function Header() {
 
             <Link
               to="/#contact"
-              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-200 dark:hover:border-blue-800 transition-all hover:shadow-sm"
+              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:border-primary-200 dark:hover:border-primary-800 transition-all hover:shadow-sm"
               onClick={(e) => {
                 e.preventDefault();
                 if (location.pathname !== '/') {
@@ -130,14 +132,14 @@ export default function Header() {
           <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
             <Link
               to="/"
-              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400"
               onClick={() => setIsMenuOpen(false)}
             >
               About
@@ -146,14 +148,14 @@ export default function Header() {
               <div className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Products</div>
               <Link
                 to="/xjewel-erp"
-                className="block pl-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                className="block pl-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400"
                 onClick={() => setIsMenuOpen(false)}
               >
                 JewelBiz
               </Link>
               <Link
                 to="/xcura-hms"
-                className="block pl-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                className="block pl-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary-500 dark:hover:text-primary-400"
                 onClick={() => setIsMenuOpen(false)}
               >
                 CuraBiz
@@ -161,21 +163,21 @@ export default function Header() {
             </div>
             <Link
               to="/blogs"
-              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400"
               onClick={() => setIsMenuOpen(false)}
             >
               Blogs
             </Link>
             <a
               href="#contact"
-              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              className="block py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </a>
             <button
               onClick={() => setIsDark(!isDark)}
-              className="flex items-center space-x-2 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+              className="flex items-center space-x-2 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400"
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               <span>{isDark ? 'Light Mode' : 'Dark Mode'}</span>

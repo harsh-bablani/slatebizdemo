@@ -19,10 +19,10 @@ export default function About() {
 
 function HeroSection() {
   return (
-    <section className="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+    <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl md:text-6xl font-bold mb-6">About SlateBiz</h1>
-        <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+        <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto">
           Building intelligent digital ecosystems for modern businesses
         </p>
       </div>
@@ -32,10 +32,10 @@ function HeroSection() {
 
 function StatsSection() {
   return (
-    <section className="py-20 bg-blue-900 text-white relative overflow-hidden">
+    <section className="py-20 bg-primary-900 text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-500 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-500 rounded-full blur-3xl opacity-20"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -56,7 +56,7 @@ function StatCard({ end, suffix = '', decimals = 0, label }: { end: number, suff
       <div className="text-4xl md:text-5xl font-bold text-white mb-3">
         <CountUp end={end} suffix={suffix} decimals={decimals} />
       </div>
-      <p className="text-blue-100 font-medium leading-relaxed">
+      <p className="text-primary-100 font-medium leading-relaxed">
         {label}
       </p>
     </div>
@@ -133,7 +133,7 @@ function FoundersSection() {
               className="w-52 h-52 rounded-full object-cover shadow-lg mb-6 border-4 border-white"
             />
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Lokesh Verma</h3>
-            <p className="text-lg text-blue-600 font-medium">Founder</p>
+            <p className="text-lg text-primary-500 font-medium">Founder</p>
           </div>
           <div className="flex flex-col items-center">
             <img
@@ -142,7 +142,7 @@ function FoundersSection() {
               className="w-52 h-52 rounded-full object-cover shadow-lg mb-6 border-4 border-white"
             />
             <h3 className="text-2xl font-bold text-gray-900 mb-2">Umang Garg</h3>
-            <p className="text-lg text-blue-600 font-medium">Co-founder</p>
+            <p className="text-lg text-primary-500 font-medium">Co-founder</p>
           </div>
         </div>
       </div>
@@ -201,7 +201,7 @@ function WhatWeDoSection() {
                 key={index}
                 className="flex items-start space-x-3 bg-white p-4 rounded-lg shadow-sm"
               >
-                <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                <div className="w-2 h-2 bg-primary-500 rounded-full mt-2 flex-shrink-0"></div>
                 <span className="text-gray-700">{service}</span>
               </div>
             ))}
@@ -253,7 +253,7 @@ function OurApproachSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 text-blue-600 rounded-full mb-4">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 text-primary-500 rounded-full mb-4">
                 <step.icon className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
@@ -302,7 +302,7 @@ function WhyChooseSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose SlateBiz</h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-primary-500 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -311,7 +311,7 @@ function WhyChooseSection() {
               key={index}
               className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow"
             >
-              <reason.icon className="w-12 h-12 text-blue-600 mb-4" />
+              <reason.icon className="w-12 h-12 text-primary-500 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 {reason.title}
               </h3>
@@ -329,18 +329,18 @@ function VisionMissionSection() {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12">
-          <div className="bg-gradient-to-br from-blue-500 to-blue-700 text-white p-10 rounded-2xl">
+          <div className="bg-gradient-to-br from-primary-500 to-primary-700 text-white p-10 rounded-2xl">
             <Target className="w-12 h-12 mb-6" />
             <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-            <p className="text-lg leading-relaxed text-blue-50">
+            <p className="text-lg leading-relaxed text-primary-50">
               To become a global leader in intelligent enterprise software, enabling businesses to transform digitally and operate with speed, accuracy, and confidence.
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-green-500 to-green-700 text-white p-10 rounded-2xl">
+          <div className="bg-gradient-to-br from-accent-500 to-accent-700 text-white p-10 rounded-2xl">
             <Heart className="w-12 h-12 mb-6" />
             <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-            <p className="text-lg leading-relaxed text-green-50">
+            <p className="text-lg leading-relaxed text-accent-50">
               To deliver world-class ERP and digital solutions that empower organizations with automation, data intelligence, and seamless integration, driving sustainable business growth and operational excellence.
             </p>
           </div>

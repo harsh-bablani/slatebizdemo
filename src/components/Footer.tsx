@@ -12,7 +12,7 @@ export default function Footer() {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
+              className="text-gray-400 hover:text-primary-400 transition-colors"
             >
               <Twitter className="w-5 h-5" />
             </a>
@@ -20,7 +20,7 @@ export default function Footer() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-400 transition-colors"
+              className="text-gray-400 hover:text-primary-400 transition-colors"
             >
               <Linkedin className="w-5 h-5" />
             </a>
@@ -28,7 +28,7 @@ export default function Footer() {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-pink-400 transition-colors"
+              className="text-gray-400 hover:text-accent-400 transition-colors"
             >
               <Instagram className="w-5 h-5" />
             </a>
@@ -36,7 +36,7 @@ export default function Footer() {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-blue-600 transition-colors"
+              className="text-gray-400 hover:text-primary-500 transition-colors"
             >
               <Facebook className="w-5 h-5" />
             </a>
@@ -44,10 +44,10 @@ export default function Footer() {
 
           {/* Policy Links */}
           <div className="flex items-center gap-4 text-sm">
-            <Link to="/privacy-policy" className="hover:text-blue-400 transition-colors">
+            <Link to="/privacy-policy" className="hover:text-primary-400 transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms-of-use" className="hover:text-blue-400 transition-colors">
+            <Link to="/terms-of-use" className="hover:text-primary-400 transition-colors">
               User Policy
             </Link>
           </div>

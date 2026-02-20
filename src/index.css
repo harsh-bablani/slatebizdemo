@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-custom-grey: #3A3A3A;
+  }
+  
+  body {
+    color: var(--color-custom-grey);
+  }
+  
+  .text-custom-grey {
+    color: var(--color-custom-grey);
+  }
+  
+  .bg-custom-grey {
+    background-color: var(--color-custom-grey);
+  }
+  
+  .border-custom-grey {
+    border-color: var(--color-custom-grey);
+  }
+}

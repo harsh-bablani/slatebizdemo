@@ -16,10 +16,10 @@ export default function Home() {
 
 function StatsSection() {
   return (
-    <section className="py-20 bg-blue-900 text-white relative overflow-hidden">
+    <section className="py-20 bg-primary-900 text-white relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-purple-500 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-500 rounded-full blur-3xl opacity-20"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-accent-500 rounded-full blur-3xl opacity-20"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -40,7 +40,7 @@ function StatCard({ end, suffix = '', decimals = 0, label }: { end: number, suff
       <div className="text-4xl md:text-5xl font-bold text-white mb-3">
         <CountUp end={end} suffix={suffix} decimals={decimals} />
       </div>
-      <p className="text-blue-100 font-medium leading-relaxed">
+      <p className="text-primary-100 font-medium leading-relaxed">
         {label}
       </p>
     </div>
@@ -123,7 +123,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 text-white overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -142,14 +142,14 @@ function HeroSection() {
             for Modern Business
           </h1>
 
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed text-center">
+          <p className="text-xl md:text-2xl text-primary-100 mb-8 leading-relaxed text-center">
             Smart Ecosystems. Seamless Operations. Scalable Growth
           </p>
 
           <div className="flex justify-center">
             <a
               href="#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent-500 text-white font-semibold rounded-lg hover:bg-accent-600 transition-all"
             >
               Book a free demo
             </a>
@@ -170,7 +170,7 @@ function ProductsSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Products & Ecosystem
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-primary-500 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Industry-specific solutions built for excellence
           </p>
@@ -178,7 +178,7 @@ function ProductsSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
-            <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+            <div className="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
               <div className="text-white text-center p-8">
                 <Award className="w-16 h-16 mx-auto mb-4" />
                 <h3 className="text-3xl font-bold">JewelBiz</h3>
@@ -193,7 +193,7 @@ function ProductsSection() {
               </p>
               <Link
                 to="/xjewel-erp"
-                className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 group-hover:gap-2 transition-all"
+                className="inline-flex items-center text-primary-500 font-semibold hover:text-primary-700 group-hover:gap-2 transition-all"
               >
                 Learn More
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -202,7 +202,7 @@ function ProductsSection() {
           </div>
 
           <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group">
-            <div className="h-48 bg-gradient-to-br from-green-500 to-green-700 flex items-center justify-center">
+            <div className="h-48 bg-gradient-to-br from-accent-500 to-accent-700 flex items-center justify-center">
               <div className="text-white text-center p-8">
                 <Award className="w-16 h-16 mx-auto mb-4" />
                 <h3 className="text-3xl font-bold">CuraBiz</h3>
@@ -217,7 +217,7 @@ function ProductsSection() {
               </p>
               <Link
                 to="/xcura-hms"
-                className="inline-flex items-center text-green-600 font-semibold hover:text-green-700 group-hover:gap-2 transition-all"
+                className="inline-flex items-center text-accent-500 font-semibold hover:text-accent-700 group-hover:gap-2 transition-all"
               >
                 Learn More
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -245,7 +245,7 @@ function ContactSection() {
     const scriptURL = 'https://script.google.com/macros/s/AKfycbyXR8NMI65IjoyjImSGBYXhIuXMG618qlmpbLAVRpKWKSuo5aUTeqkDgvRwjCdLjH1sUw/exec';
 
     try {
-      await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
+      await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors', credentials: 'omit' });
       setIsSubmitted(true);
       form.reset();
     } catch (error) {
@@ -259,17 +259,17 @@ function ContactSection() {
     <section id="contact" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-green-50 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-50 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent-50 rounded-full blur-3xl opacity-50"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-flex items-center space-x-2 bg-blue-50 px-3 py-1 rounded-full text-blue-600 text-sm font-medium mb-6">
+            <div className="inline-flex items-center space-x-2 bg-primary-50 px-3 py-1 rounded-full text-primary-500 text-sm font-medium mb-6">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
               </span>
               <span>Contact Us</span>
             </div>
@@ -283,7 +283,7 @@ function ContactSection() {
 
             <div className="space-y-8">
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center text-primary-500">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
@@ -292,7 +292,7 @@ function ContactSection() {
                     href="https://maps.app.goo.gl/iq89dhBchA9J3fxi8"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-blue-600 transition-colors leading-relaxed"
+                    className="text-gray-600 hover:text-primary-500 transition-colors leading-relaxed"
                   >
                     DH-079, 1st Floor Ansal Sushant City -1,<br />
                     Kalwar Road, Jaipur, Rajasthan 303706, India
@@ -301,7 +301,7 @@ function ContactSection() {
               </div>
 
               <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600">
+                <div className="flex-shrink-0 w-12 h-12 bg-accent-100 rounded-xl flex items-center justify-center text-accent-500">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
@@ -317,7 +317,7 @@ function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900 mb-1">Email Us</h3>
-                  <a href="mailto:info@slatebiz.com" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  <a href="mailto:info@slatebiz.com" className="text-gray-600 hover:text-primary-500 transition-colors">
                     info@slatebiz.com
                   </a>
                 </div>
@@ -326,7 +326,7 @@ function ContactSection() {
           </div>
 
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100 relative">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-50 to-transparent rounded-bl-full -z-10"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-50 to-transparent rounded-bl-full -z-10"></div>
             
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Request a Callback</h3>
             {isSubmitted ? (
@@ -336,7 +336,7 @@ function ContactSection() {
                 </div>
                 <h4 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h4>
                 <p className="text-gray-600">We'll get back to you shortly.</p>
-                <button onClick={() => setIsSubmitted(false)} className="mt-6 text-blue-600 font-medium hover:text-blue-700">
+                <button onClick={() => setIsSubmitted(false)} className="mt-6 text-primary-500 font-medium hover:text-primary-700">
                   Send another message
                 </button>
               </div>
@@ -351,7 +351,7 @@ function ContactSection() {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
                   placeholder="Enter your name"
                 />
               </div>
@@ -365,7 +365,7 @@ function ContactSection() {
                   id="phone"
                   name="phone"
                   required
-                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none"
                   placeholder="+91 98765 43210"
                 />
               </div>
@@ -379,7 +379,7 @@ function ContactSection() {
                     id="product"
                     name="product"
                     required
-                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all outline-none appearance-none cursor-pointer"
                     defaultValue=""
                   >
                     <option value="" disabled>Select a product</option>
@@ -394,7 +394,7 @@ function ContactSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold py-4 px-6 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-blue-500/30 mt-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                className={`w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white font-bold py-4 px-6 rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all transform hover:-translate-y-0.5 shadow-lg hover:shadow-primary-500/30 mt-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
@@ -491,7 +491,7 @@ function ReviewsSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Trusted by Industry Leaders
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-primary-500 mx-auto mb-6"></div>
           <p className="text-xl text-gray-600">
             Powering businesses with intelligent solutions
           </p>
@@ -500,14 +500,14 @@ function ReviewsSection() {
         <div className="relative group">
           <button 
             onClick={() => scroll('left')}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white p-3 rounded-full shadow-lg text-gray-600 hover:text-blue-600 transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white p-3 rounded-full shadow-lg text-gray-600 hover:text-primary-500 transition-all opacity-0 group-hover:opacity-100 hidden md:block"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
           
           <button 
             onClick={() => scroll('right')}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white p-3 rounded-full shadow-lg text-gray-600 hover:text-blue-600 transition-all opacity-0 group-hover:opacity-100 hidden md:block"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white p-3 rounded-full shadow-lg text-gray-600 hover:text-primary-500 transition-all opacity-0 group-hover:opacity-100 hidden md:block"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -523,16 +523,16 @@ function ReviewsSection() {
               key={index}
               className="min-w-[260px] w-[260px] h-[260px] flex-shrink-0 snap-center bg-white rounded-xl p-6 hover:shadow-xl transition-all border border-gray-200 flex flex-col relative"
             >
-              <Quote className="absolute top-4 right-4 w-8 h-8 text-blue-100" />
+              <Quote className="absolute top-4 right-4 w-8 h-8 text-primary-100" />
               <div className="flex-1 flex items-center">
                 <p className="text-gray-700 text-lg italic leading-relaxed">"{client.text}"</p>
               </div>
               <div>
                 <h3 className="text-base font-bold text-gray-900 mb-1">{client.name}</h3>
-                <p className="text-blue-600 font-medium text-sm">{client.company}</p>
+                <p className="text-primary-500 font-medium text-sm">{client.company}</p>
               </div>
             </div>
-          ))}
+            ))}
           </div>
         </div>
       </div>

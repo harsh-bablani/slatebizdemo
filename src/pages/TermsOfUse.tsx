@@ -274,7 +274,7 @@ export default function TermsOfUse() {
                   href="https://maps.app.goo.gl/iq89dhBchA9J3fxi8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800"
+                  className="text-primary-500 hover:text-primary-700"
                 >
                   DH-079, 1st Floor Ansal Sushant City -1, Kalwar Road, Jaipur, Rajasthan 303706, India
                 </a>
@@ -286,7 +286,7 @@ export default function TermsOfUse() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">23. CONTACT</h2>
             <p>
-              For questions, support, or complaints, contact <a href="mailto:info@slatebiz.com" className="text-blue-600 hover:text-blue-800">info@slatebiz.com</a>
+              For questions, support, or complaints, contact <a href="mailto:info@slatebiz.com" className="text-primary-500 hover:text-primary-700">info@slatebiz.com</a>
             </p>
           </section>
 

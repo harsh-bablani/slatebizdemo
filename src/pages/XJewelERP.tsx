@@ -32,7 +32,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 text-white py-20 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900 text-white py-20 overflow-hidden">
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -52,7 +52,7 @@ function HeroSection() {
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             JewelBiz – Smart Jewellery ERP Software
           </h1>
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-primary-100 mb-8 max-w-4xl mx-auto leading-relaxed">
             Bring total control to your jewellery business — from metal to sale and karigar management. Track gold, silver, diamonds, gemstones, job work, wastage, and settlements in real time.
           </p>
 
@@ -73,7 +73,7 @@ function HeroSection() {
 
           <a
             href="#contact"
-            className="inline-block bg-white text-blue-600 font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl"
+            className="inline-block bg-accent-500 text-white font-semibold px-8 py-4 rounded-lg hover:bg-accent-600 transition-all shadow-lg hover:shadow-xl"
           >
             Request Demo
           </a>
@@ -116,8 +116,8 @@ function WhyChooseSection() {
 
         <div className="grid md:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-xl border border-blue-100">
-              <benefit.icon className="w-12 h-12 text-blue-600 mb-4" />
+            <div key={index} className="bg-gradient-to-br from-primary-50 to-white p-8 rounded-xl border border-primary-100">
+              <benefit.icon className="w-12 h-12 text-primary-500 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 {benefit.title}
               </h3>
@@ -160,7 +160,7 @@ function CoreModulesSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Core Modules
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-primary-500 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -169,7 +169,7 @@ function CoreModulesSection() {
               key={index}
               className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex items-start space-x-3"
             >
-              <Check className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+              <Check className="w-5 h-5 text-accent-500 flex-shrink-0 mt-1" />
               <span className="text-gray-700 font-medium">{module}</span>
             </div>
           ))}
@@ -202,17 +202,17 @@ function BusinessModelsSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Built for Every Jewellery Business Model
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-primary-500 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {models.map((model, index) => (
             <div
               key={index}
-              className="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-8 rounded-xl"
+              className="bg-gradient-to-br from-primary-500 to-primary-700 text-white p-8 rounded-xl"
             >
               <h3 className="text-2xl font-bold mb-4">{model.title}</h3>
-              <p className="text-blue-100 leading-relaxed">{model.description}</p>
+              <p className="text-primary-100 leading-relaxed">{model.description}</p>
             </div>
           ))}
         </div>
@@ -257,13 +257,13 @@ function WhyTrustSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Why Top Jewellers Trust JewelBiz
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-primary-500 mx-auto"></div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <feature.icon className="w-12 h-12 text-blue-600 mb-4" />
+              <feature.icon className="w-12 h-12 text-primary-500 mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 {feature.title}
               </h3>
@@ -286,18 +286,18 @@ function PricingSection() {
         <p className="text-lg text-gray-600 mb-8">
           Flexible pricing based on business size, number of branches, and modules.
         </p>
-        <div className="bg-blue-50 p-8 rounded-xl">
+        <div className="bg-primary-50 p-8 rounded-xl">
           <ul className="text-left space-y-3 mb-6">
             <li className="flex items-center space-x-3">
-              <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+              <Check className="w-5 h-5 text-accent-500 flex-shrink-0" />
               <span className="text-gray-700">No hidden charges</span>
             </li>
             <li className="flex items-center space-x-3">
-              <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+              <Check className="w-5 h-5 text-accent-500 flex-shrink-0" />
               <span className="text-gray-700">No per-user fees</span>
             </li>
             <li className="flex items-center space-x-3">
-              <Check className="w-5 h-5 text-green-600 flex-shrink-0" />
+              <Check className="w-5 h-5 text-accent-500 flex-shrink-0" />
               <span className="text-gray-700">Complete implementation and training included</span>
             </li>
           </ul>
@@ -336,7 +336,7 @@ function FAQSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Frequently Asked Questions
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto"></div>
+          <div className="w-20 h-1 bg-primary-500 mx-auto"></div>
         </div>
 
         <div className="space-y-4">
@@ -368,17 +368,17 @@ function FAQSection() {
 
 function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
+    <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Ready to Transform Your Jewellery Business?
         </h2>
-        <p className="text-xl text-blue-100 mb-8">
+        <p className="text-xl text-primary-100 mb-8">
           Join hundreds of jewellers who trust JewelBiz for their business
         </p>
         <a
           href="/#contact"
-          className="inline-block bg-white text-blue-600 font-semibold px-8 py-4 rounded-lg hover:bg-blue-50 transition-all shadow-lg hover:shadow-xl"
+          className="inline-block bg-accent-500 text-white font-semibold px-8 py-4 rounded-lg hover:bg-accent-600 transition-all shadow-lg hover:shadow-xl"
         >
           Get Started Today
         </a>
